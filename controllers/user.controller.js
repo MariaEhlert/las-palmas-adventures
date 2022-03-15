@@ -19,7 +19,7 @@ exports.create = (req, res) => {
         name: req.body.name,
         password: req.body.password,
         email: req.body.email,
-        photo: req.body.photo
+        photo: req.file.filename
     };
 
     // Encrypts user password with bcrypt

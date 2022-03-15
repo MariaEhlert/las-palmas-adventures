@@ -2,9 +2,10 @@ module.exports = app => {
     const users = require("../controllers/user.controller.js");
     const auth = require("../controllers/auth.controller.js");
     var router = require("express").Router();
+    var upload = require('../multer/uploadUsers');
 
     // Create a new User
-    router.post("/", users.create);
+    router.post("/", upload.single('photo'), users.create);
 
     // Retrieve all Users from database
     router.get("/", users.findAll);
@@ -13,10 +14,10 @@ module.exports = app => {
     router.get("/:name", auth.isAuthenticated, users.findByName);
 
     // Update a User
-    router.put("/:id", auth.isAuthenticated, users.UpdateUser);
+    router.put("/:id", upload.single('photo') ,auth.isAuthenticated, users.UpdateUser);
 
     // Delete a User
-    router.delete("/:id", auth.isAuthenticated, users.delete);
+    router.delete("/:id", users.delete);
 
     //Login User
     router.post("/signin", auth.signin);

@@ -1,9 +1,12 @@
 var multer  = require('multer');
 
+//Upload a image
 var storage = multer.diskStorage({
+    //Attribute for set the destination folder
     destination: (req, file, cb) => {
-      cb(null, './public/images/Places');
+      cb(null, './public/images/Users');
     },
+    //Attribute to set the filename and file type
     filename: (req, file, cb) => {
       console.log("Comprobando El Fichero Subido");
       console.log(file);
@@ -21,7 +24,7 @@ var storage = multer.diskStorage({
     }
 });
 
-var upload = multer({storage: storage});
+var uploadUser = multer({storage: storage});
 
 
 module.exports = uploadUser;

@@ -1,9 +1,10 @@
 module.exports = app => {
     const places = require("../controllers/place.controller.js");
     var router = require("express").Router();
+    var upload = require('../multer/uploadPlaces');
 
     // Create a new Place
-    router.post("/", places.create);
+    router.post("/", upload.single('photo'), places.create);
 
     // Retrieve all Places from database
     router.get("/", places.findAll);
@@ -15,7 +16,7 @@ module.exports = app => {
     router.get("/:name",  places.findByName);
 
     // Update a Place
-    router.put("/:id", places.updatePlace);
+    router.put("/:id",upload.single('photo'), places.updatePlace);
 
     // Delete a Place
     router.delete("/:id", places.delete);

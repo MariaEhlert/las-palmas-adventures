@@ -27,7 +27,7 @@ function getCleanUser(user) {
  
   return {
     id: user.id,
-    name: user.username,
+    name: user.name,
     password: user.password,
     email: user.email,
     photo: user.photo
