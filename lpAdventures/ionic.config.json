@@ -1,0 +1,7 @@
+{
+  "name": "lpAdventures",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
