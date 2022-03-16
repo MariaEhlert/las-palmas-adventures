@@ -1,6 +1,6 @@
+// File for the api config
+
 const API_URL = 'http://localhost:4000/api';
-
-
 
 const USERS = `${API_URL}/users`;
 const PLACES = `${API_URL}/places`;
