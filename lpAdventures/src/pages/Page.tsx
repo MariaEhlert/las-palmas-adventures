@@ -1,5 +1,6 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { useParams } from 'react-router';
+import FrontPage from './FrontPage';
 import './Page.scss';
 
 const Page: React.FC = () => {
@@ -21,6 +22,7 @@ const Page: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
         </IonHeader>
+        <FrontPage />
       </IonContent>
     </IonPage>
   );
