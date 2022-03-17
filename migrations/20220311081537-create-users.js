@@ -23,7 +23,7 @@ module.exports = {
       },
       photo: {
         type: Sequelize.STRING,
-        defaultValue: "default.png"
+        defaultValue: "localhost:4000/images/Users/default.png"
       },
       createdAt: {
         allowNull: false,

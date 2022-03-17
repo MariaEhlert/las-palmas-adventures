@@ -9,8 +9,8 @@ module.exports = app => {
     // Retrieve all Places from database
     router.get("/", places.findAll);
 
-     // Retrieve all Places by order name from database
-     router.get("/order/name", places.findAllByOrderPlace);
+    // Retrieve all Places by order name from database
+    router.get("/order/name", places.findAllByOrderPlace);
 
     // Retrieve a single Place using its name
     router.get("/:name",  places.findByName);

@@ -27,7 +27,7 @@ module.exports = {
       photo: {
         allowNull: false,
         type: Sequelize.STRING,
-        defaultValue: "defaultPlace.png"
+        defaultValue: "localhost:4000/images/Places/defaultPlace.png"
       },
       likes: {
         type: Sequelize.INTEGER,
