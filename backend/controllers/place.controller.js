@@ -18,10 +18,15 @@ exports.create = (req, res) => {
         type: req.body.type,
         description: req.body.description,
         creation: req.body.creation,
-        photo: req.file.filename,
         locationIdApi: req.body.locationIdApi,
         locationTypeApi: req.body.locationTypeApi
     };
+
+    try {
+        place.photo = req.file.filename
+      } catch (error) {
+        console.log("No hay img")
+      }
 
     // Save new Place in the database
     Place.create(place)

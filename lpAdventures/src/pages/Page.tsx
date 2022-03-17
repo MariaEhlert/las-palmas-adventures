@@ -2,16 +2,27 @@ import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, Io
 import { useParams } from 'react-router';
 import './Page.scss';
 //Import the service to use
-import API from "../services/user.service"
+import APIUser from "../services/user.service"
+import APIPlace from "../services/place.service"
+import APIComment from "../services/comment.service"
 
-// Hook for get all user
+// Hook for get all registries
 import { useUserFetch } from "../hooks/useUserFetch";
+import { useCommentFetch } from '../hooks/useCommentFetch';
+import { usePlaceFetch } from '../hooks/usePlaceFetch';
+import { useFavouriteFetch } from '../hooks/useFavouriteFetch';
+
 const Page: React.FC = () => {
 
-  //Define de hook (is like useState)
-  const { state, loading, error } = useUserFetch();
-  console.log(state.results)
-  
+  // Define de hook (is like useState)
+  // const { state, loading, error } = useUserFetch();
+  // const { state, loading, error } = useCommentFetch();
+  // const { state, loading, error } = usePlaceFetch();
+  // console.log(state.results)
+
+  // console.log(APIComment.fetchAllCommentsByPlace(1))
+
+
   const { name } = useParams<{ name: string; }>();
 
   return (

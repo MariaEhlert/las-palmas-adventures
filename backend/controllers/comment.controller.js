@@ -6,8 +6,9 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new Comment
 exports.create = (req, res) => {
+    console.log(req.body)
     //Validate request for comment text
-    if (!req.body.idUser || !req.body.idPlace || !req.body.text) {
+    if (!req.body.idUser || !req.body.idPlace || !req.body.text || !req.body.date) {
         res.status(400).send({
             message: "Content can not be empty!"
         });

@@ -4,7 +4,7 @@ import {
   USERS
 } from './config';
 
-const apiSettings = {
+const apiSettingsUser = {
     fetchAllUsers: async () => {
         const endpoint = `${API_URL}/users`;
         return await (await fetch(endpoint)).json();
@@ -25,4 +25,4 @@ const apiSettings = {
 
 
 
-export default apiSettings;
+export default apiSettingsUser;
