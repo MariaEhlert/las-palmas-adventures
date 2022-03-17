@@ -5,7 +5,7 @@ import {
 } from './config';
 
 const apiSettingsFavourite = {
-    fetchAllFavourites: async () => {
+    fetchAllFavourites: async UserId  => {
         const endpoint = `${API_URL}/favourites/${UserId}`;
         return await (await fetch(endpoint)).json();
     },
@@ -13,11 +13,11 @@ const apiSettingsFavourite = {
       const endpoint = `${API_URL}/favourites`;
       return await (await axios.post(endpoint, body));
     },
-    deleteFavourite:  async body => {
+    deleteFavourite:  async (PlaceId, UserId) => {
       const endpoint = `${API_URL}/favourites/${PlaceId}/${UserId}`;
-      return await (await axios.delete(endpoint, body));
+      return await (await axios.delete(endpoint));
     },
-    updateFavourite: async (UserId, body) => {
+    updateFavourite: async (PlaceId, UserId, body) => {
       const endpoint = `${API_URL}/favourites/${PlaceId}/${UserId}`;
       return await (await axios.put(endpoint, body));
     },
