@@ -12,22 +12,22 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Favourites.belongsTo(models.Places, {
         onDelete: "CASCADE",
-        foreignKey: "idPlace",
+        foreignKey: "id_place",
         as: "places"
       })
       Favourites.belongsTo(models.Users, {
         onDelete: "CASCADE",
-        foreignKey: "idUser",
+        foreignKey: "id_user",
         as: "users"
       })
     }
   }
   Favourites.init({
-    idUser: DataTypes.INTEGER,
-    idPlace: DataTypes.INTEGER
+    id_user: DataTypes.INTEGER,
+    id_place: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'Favourites',
+    modelName: 'favourites',
   });
   return Favourites;
 };

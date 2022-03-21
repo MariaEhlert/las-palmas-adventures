@@ -1,8 +1,8 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Favourites', {
-      idUser: {
+    await queryInterface.createTable('favourites', {
+      id_user: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.INTEGER,
@@ -10,7 +10,7 @@ module.exports = {
           model: 'users',
           key: 'id'
       },},
-     idPlace: {
+     id_place: {
       allowNull: false,
       primaryKey: true,
       type: Sequelize.INTEGER,
@@ -19,17 +19,17 @@ module.exports = {
            key: 'id'
       },
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Favourites');
+    await queryInterface.dropTable('favourites');
   }
 };

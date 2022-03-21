@@ -5,8 +5,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
 
-
-
 // Backend listens from PORT 4000
 const port = process.env.PORT || 4000;
  

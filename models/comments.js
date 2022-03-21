@@ -13,24 +13,24 @@ module.exports = (sequelize, DataTypes) => {
 
       Comments.belongsTo(models.Places, {
         onDelete: "CASCADE",
-        foreignKey: "idPlace",
+        foreignKey: "id_place",
         as: "places"
       })
       Comments.belongsTo(models.Users, {
         onDelete: "CASCADE",
-        foreignKey: "idUser",
+        foreignKey: "id_user",
         as: "users"
       })
     }
   };
   Comments.init({
-    idUser: DataTypes.INTEGER,
-    idPlace: DataTypes.INTEGER,
+    id_user: DataTypes.INTEGER,
+    id_place: DataTypes.INTEGER,
     text: DataTypes.STRING,
     date: DataTypes.DATE
   }, {
     sequelize,
-    modelName: 'Comments',
+    modelName: 'comments',
   });
   return Comments;
 };

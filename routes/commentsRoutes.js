@@ -9,16 +9,16 @@ module.exports = app => {
     router.get("/", comments.findAll);
 
     // // Retrieve all Comment of the User from database
-    router.get("/place/:idPlace", comments.findByIdPlace);
+    router.get("/place/:id_place", comments.findByIdPlace);
 
      // // Retrieve all Comment of the User from database
-     router.get("/user/:idUser", comments.findByIdUser);
+     router.get("/user/:id_user", comments.findByIdUser);
 
     // Update a Comment
-    router.put("/:idPlace/:idUser", comments.updateComment);
+    router.put("/:id_place/:id_user", comments.updateComment);
 
     // Delete a Comment
-    router.delete("/:idPlace/:idUser", comments.delete);
+    router.delete("/:id_place/:id_user", comments.delete);
 
     // Basic backend route for the app to use
     app.use('/api/comments', router);   

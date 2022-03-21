@@ -20,11 +20,11 @@ module.exports = (sequelize, DataTypes) => {
     creation: DataTypes.STRING,
     photo: DataTypes.STRING,
     likes: DataTypes.INTEGER,
-    locationIdApi: DataTypes.STRING,
-    locationTypeApi: DataTypes.STRING
+    location_id_api: DataTypes.STRING,
+    location_type_api: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'Places',
+    modelName: 'places',
   });
   return Places;
 };

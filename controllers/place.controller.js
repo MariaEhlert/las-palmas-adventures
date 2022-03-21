@@ -19,8 +19,8 @@ exports.create = (req, res) => {
         description: req.body.description,
         creation: req.body.creation,
         photo: req.file.filename,
-        locationIdApi: req.body.locationIdApi,
-        locationTypeApi: req.body.locationTypeApi
+        location_id_api: req.body.location_id_api,
+        location_type_api: req.body.location_type_api
     };
 
     // Save new Place in the database

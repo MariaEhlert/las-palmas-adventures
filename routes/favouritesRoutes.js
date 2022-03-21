@@ -6,13 +6,13 @@ module.exports = app => {
     router.post("/", favourites.create);
 
     // Retrieve all Favourites from database
-    router.get("/:idUser", favourites.findAllByUser);
+    router.get("/:id_user", favourites.findAllByUser);
 
     // Update a Favourites
-    router.put("/:idPlace/:idUser", favourites.updateFavourite);
+    router.put("/:id_place/:id_user", favourites.updateFavourite);
 
     // Delete a Favourites
-    router.delete("/:idPlace/:idUser", favourites.delete);
+    router.delete("/:id_place/:id_user", favourites.delete);
 
     // Basic backend route for the app to use
     app.use('/api/favourites', router);   

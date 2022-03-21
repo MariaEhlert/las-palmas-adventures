@@ -7,7 +7,7 @@ const Op = db.Sequelize.Op;
 // Create and Save a new Comment
 exports.create = (req, res) => {
     //Validate request for comment text
-    if (!req.body.idUser || !req.body.idPlace || !req.body.text) {
+    if (!req.body.id_user || !req.body.id_place || !req.body.text) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
@@ -16,14 +16,14 @@ exports.create = (req, res) => {
 
     // Create a Comment Model with request data
     let comment = {
-        idUser: req.body.idUser,
-        idPlace: req.body.idPlace,
+        id_user: req.body.id_user,
+        id_place: req.body.id_place,
         text: req.body.text,
         date: req.body.date
     };
 
     // Save new Comment in the database
-    Comment.create(comment, { fields: ['idUser', "idPlace", "text", "date"] })
+    Comment.create(comment, { fields: ['id_user', "id_place", "text", "date"] })
         .then(data => {
             return res.send(data);
         })
@@ -38,7 +38,7 @@ exports.create = (req, res) => {
 // Retrieve all Comments from the database.
 exports.findAll = (req, res) => {
     Comment.findAll({
-        attributes: ['idUser', 'idPlace', 'text', 'date']
+        attributes: ['id_user', 'id_place', 'text', 'date']
     })
         .then(data => {
             res.send(data);
@@ -55,7 +55,7 @@ exports.findAll = (req, res) => {
 exports.findByIdPlace = (req, res) => {
     const idPlace = req.params.idPlace;
     Comment.findOne({
-        attributes: ['idUser', 'idPlace', 'text', 'date']
+        attributes: ['id_user', 'id_place', 'text', 'date']
     }, { where: { idPlace: idPlace } })
         .then(data => {
             res.send(data);
@@ -71,7 +71,7 @@ exports.findByIdPlace = (req, res) => {
 exports.findByIdUser = (req, res) => {
     const idUser = req.params.idUser;
     Comment.findOne({
-        attributes: ['idUser', 'idPlace', 'text', 'date']
+        attributes: ['id_user', 'id_place', 'text', 'date']
     }, { where: { idUser: idUser } })
         .then(data => {
             res.send(data);
@@ -85,35 +85,35 @@ exports.findByIdUser = (req, res) => {
 
 // Update a Comment
 exports.updateComment = (req, res) => {
-    const idUser = req.params.idUser;
-    const idPlace = req.params.idPlace;
+    const idUser = req.params.id_user;
+    const idPlace = req.params.id_place;
     // If there is no parameters -> num == 0 & cannot update place
     // If theres a req.body parameter then num==1 & place is updated
-    Comment.update(req.body, { where: { idUser: idUser, idPlace: idPlace } }, { fields: ['idUser', "idPlace", "text", "date"] }).then(num => {
+    Comment.update(req.body, { where: { id_user: idUser, id_place: idPlace } }, { fields: ['id_user', "id_place", "text", "date"] }).then(num => {
         if (num == 1) {
             res.send({
                 message: "Comment was updated successfully."
             });
         } else {
             res.send({
-                message: `Cannot update Comment with idUser =${idUser} & idPlace =${idPlace} Maybe Place was not found or req.body is empty!`
+                message: `Cannot update Comment with id_user =${idUser} & id_place =${idPlace} Maybe Place was not found or req.body is empty!`
             });
         }
     })
         .catch(err => {
             res.status(500).send({
-                message: "Error updating Comment with idUser =" + idUser + " idPlace =" + idPlace
+                message: "Error updating Comment with id_user =" + idUser + " id_place =" + idPlace
             });
         });
 };
 
 // Delete a Comment with the specified ids in the request
 exports.delete = (req, res) => {
-    const idUser = req.params.idUser;
-    const idPlace = req.params.idPlace;
+    const idUser = req.params.id_user;
+    const idPlace = req.params.id_place;
 
     Comment.destroy({
-        where: { idUser: idUser, idPlace: idPlace }
+        where: { id_user: idUser, id_place: idPlace }
     })
         .then(num => {
             if (num == 1) {
@@ -122,13 +122,13 @@ exports.delete = (req, res) => {
                 });
             } else {
                 res.send({
-                    message: `Cannot delete Comment with idUser =${idUser} & idPlace =${idPlace}. Maybe Place was not found!`
+                    message: `Cannot delete Comment with id_user =${idUser} & id_place =${idPlace}. Maybe Place was not found!`
                 });
             }
         })
         .catch(err => {
             res.status(500).send({
-                message: "Could not delete Comment with idUser =" + idUser + " idPlace =" + idPlace
+                message: "Could not delete Comment with id_user =" + idUser + " id_place =" + idPlace
             });
         });
 };
