@@ -1,13 +1,9 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import Footer from '../components/Footer';
-import LogIn from '../components/LogIn';
+import MapPage from '../components/Map';
 import './Page.scss';
 
 const PageTree: React.FC = () => {
   
-  
-
-
   return (
     <IonPage>
       <IonHeader>
@@ -22,9 +18,8 @@ const PageTree: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
         </IonHeader>
-        <LogIn />
+        <MapPage />
       </IonContent>
-      {/* <Footer /> */}
     </IonPage>
   );
 };

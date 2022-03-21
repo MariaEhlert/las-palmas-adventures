@@ -1,8 +1,51 @@
-// // --background none to get background image to work 
 .profileWrapper{
         --background: none;
-    background: url("../assets/images/beach.jpg");
+    background: url("../assets/images/Hero-view-of-beach.jpg");
     background-position: center; 
     background-repeat: no-repeat;
     background-size: cover; 
+}
+.profileX{
+    display: grid;
+    justify-content: end;
+    padding-top: 10%;
+    padding-right: 10%;
+}
+.profileTitle{
+    text-align: center;
+    padding-bottom: 3%;
+}
+.profileImgWrapper{
+    --background: none;
+    display: grid;
+    justify-content: center;
+    .profileImg{
+        border-radius: 50%;
+        overflow: hidden; 
+    }
+}
+.profileBtnWrapper{
+    display: grid;
+    justify-content: center;
+    .uploadIcon{
+        --background: none;
+        // --box-shadow: unset remove box around button
+        --box-shadow: unset;
+    }
+    .username{
+        --background: #BAD9D9;
+        Ion-Text{
+            text-shadow: 0 0 2px #589EA6;
+        }
+    }
+    .changePassword{
+        --background: #589EA6;
+    }
+    .likedPlaces{
+        --background: #589EA6;
+    }
+    .logOutBtn{
+        margin-top: 20%;
+        --background: #589EA6;
+    }
 }

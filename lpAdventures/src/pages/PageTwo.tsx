@@ -1,6 +1,5 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import Footer from '../components/Footer';
-import Profile from '../components/Profile';
+import ProfilePage from '../components/Profile';
 import './Page.scss';
 
 const PageTwo: React.FC = () => {
@@ -22,9 +21,8 @@ const PageTwo: React.FC = () => {
       <IonContent fullscreen className='profileWrapper'>
         <IonHeader collapse="condense">
         </IonHeader>
-        <Profile />
+        <ProfilePage />
       </IonContent>
-      {/* <Footer /> */}
     </IonPage>
   );
 };
