@@ -1,3 +1,4 @@
+import './LogIn.scss'
 const LogIn: React.FC = () => {
     return (
         <>
