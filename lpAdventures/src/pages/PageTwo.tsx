@@ -1,10 +1,9 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { useParams } from 'react-router';
 import Footer from '../components/Footer';
-import FrontPage from '../components/FrontPage';
+import Profile from '../components/Profile';
 import './Page.scss';
 
-const Page: React.FC = () => {
+const PageTwo: React.FC = () => {
   
   
 
@@ -20,14 +19,14 @@ const Page: React.FC = () => {
           <IonTitle>Las palmas Adventures</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
+      <IonContent fullscreen className='profileWrapper'>
         <IonHeader collapse="condense">
         </IonHeader>
-        <FrontPage />
+        <Profile />
       </IonContent>
       {/* <Footer /> */}
     </IonPage>
   );
 };
 
-export default Page;
+export default PageTwo;

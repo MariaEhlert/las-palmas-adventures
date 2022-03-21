@@ -4,12 +4,14 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 
 import './FrontPage.scss'
+import Footer from "./Footer";
 
 const FrontPage: React.FC = () => {
     return (
         <>
             <HeroImage />
             <Cards />
+            <Footer />
         </>
     )
 }

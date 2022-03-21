@@ -8,7 +8,6 @@ import {
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import FrontPage from './FrontPage';
 import './Menu.scss';
 
 interface AppPage {
@@ -23,11 +22,11 @@ const appPages: AppPage[] = [
   },
   {
     title: 'Profile',
-    url: '/page/Outbox'
+    url: '/page/Profile'
   },
   {
     title: 'Map',
-    url: '/page/Favorites'
+    url: '/page/Map'
   }
 ];
 

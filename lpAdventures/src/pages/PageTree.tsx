@@ -1,10 +1,9 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { useParams } from 'react-router';
 import Footer from '../components/Footer';
-import FrontPage from '../components/FrontPage';
+import LogIn from '../components/LogIn';
 import './Page.scss';
 
-const Page: React.FC = () => {
+const PageTree: React.FC = () => {
   
   
 
@@ -23,11 +22,11 @@ const Page: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
         </IonHeader>
-        <FrontPage />
+        <LogIn />
       </IonContent>
       {/* <Footer /> */}
     </IonPage>
   );
 };
 
-export default Page;
+export default PageTree;
