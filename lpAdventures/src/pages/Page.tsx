@@ -1,7 +1,7 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { useParams } from 'react-router';
 import Footer from '../components/Footer';
-import FrontPage from './FrontPage';
+import FrontPage from '../components/FrontPage';
 import './Page.scss';
 
 const Page: React.FC = () => {

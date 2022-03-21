@@ -8,7 +8,7 @@ import {
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import FrontPage from '../pages/FrontPage';
+import FrontPage from './FrontPage';
 import './Menu.scss';
 
 interface AppPage {
