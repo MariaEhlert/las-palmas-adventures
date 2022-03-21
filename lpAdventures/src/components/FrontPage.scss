@@ -1,0 +1,30 @@
+.submenu{
+    Ion-Button{
+        font-size: 3vw;
+    }
+}
+.cardsWrapper{
+    Ion-Card-Header{
+        text-align: center;
+    }
+    .distance{
+        color: black;
+    }
+    .readMore{
+        display: flex;
+        justify-content: end;
+        color: black;
+    }
+}
+
+.blackToTop{
+    background-color: #BF8C6F;
+    text-align: center;
+    Ion-Card-Header{
+        color: white;
+    }
+    .blackBtn{
+        color: white;
+        text-decoration: none;
+    }
+}
