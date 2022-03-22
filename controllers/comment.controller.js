@@ -1,7 +1,7 @@
 const db = require("../models");
 const User = require("../models/users");
 const Place = require("../models/places");
-const Comment = db.Comments;
+const Comment = db.comments;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Comment
@@ -51,10 +51,10 @@ exports.findAll = (req, res) => {
         });
 };
 
-// Find a single Comment with it idPlace
+// Find a many Comment with it idPlace
 exports.findByIdPlace = (req, res) => {
     const idPlace = req.params.idPlace;
-    Comment.findOne({
+    Comment.findAll({
         attributes: ['id_user', 'id_place', 'text', 'date']
     }, { where: { idPlace: idPlace } })
         .then(data => {
@@ -67,10 +67,10 @@ exports.findByIdPlace = (req, res) => {
         });
 };
 
-// Find a single Comment with it idUser
+// Find a many Comment with it idUser
 exports.findByIdUser = (req, res) => {
     const idUser = req.params.idUser;
-    Comment.findOne({
+    Comment.findAll({
         attributes: ['id_user', 'id_place', 'text', 'date']
     }, { where: { idUser: idUser } })
         .then(data => {

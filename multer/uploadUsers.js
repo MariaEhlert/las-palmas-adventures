@@ -20,7 +20,7 @@ var storage = multer.diskStorage({
       if(file.mimetype === 'image/jpeg') {
         filetype = 'jpg';
       }
-      cb(null, 'localhost:4000/images/Users/image-' + Date.now() + '.' + filetype);
+      cb(null, ' image-' + Date.now() + '.' + filetype);
     }
 });
 

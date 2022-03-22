@@ -33,22 +33,14 @@ module.exports = {
         type: Sequelize.INTEGER,
         defaultValue: 0
       },
-      location_id_api: {
+      latitude: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.FLOAT,
       },
-      location_type_api: {
+      longitude: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.FLOAT,
       },
-      created_at: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updated_at: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
     });
   },
   async down(queryInterface, Sequelize) {

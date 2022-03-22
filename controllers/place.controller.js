@@ -1,5 +1,5 @@
 const db = require("../models");
-const Place = db.Places;
+const Place = db.places;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Place
@@ -18,9 +18,9 @@ exports.create = (req, res) => {
         type: req.body.type,
         description: req.body.description,
         creation: req.body.creation,
-        photo: req.file.filename,
-        location_id_api: req.body.location_id_api,
-        location_type_api: req.body.location_type_api
+        photo: 'localhost:4000/images/Places/image-' + Date.now() + '.' + req.file.filename,
+        latitude: req.body.latitude,
+        longitude: req.body.longitude
     };
 
     // Save new Place in the database
@@ -83,7 +83,7 @@ exports.findByName = (req, res) => {
 exports.updatePlace = (req, res) => {
     const id = req.params.id;
     // If there is no parameters -> num == 0 & cannot update place
-    // If theres a req.body parameter then num==1 & place is updated
+    // If there is a req.body parameter then num==1 & place is updated
     Place.update(req.body, { where: { id: id } }).then(num => {
         if (num == 1) {
             res.send({

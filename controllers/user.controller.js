@@ -1,5 +1,5 @@
 const db = require("../models");
-const User = db.Users;
+const User = db.users;
 const Op = db.Sequelize.Op;
 const utils = require("../utils");
 const bcrypt = require('bcryptjs');
@@ -19,7 +19,7 @@ exports.create = (req, res) => {
         name: req.body.name,
         password: req.body.password,
         email: req.body.email,
-        photo: req.file.filename
+        photo: 'localhost:4000/images/User/image-' + Date.now() + '.' + req.file.filename
     };
 
     // Encrypts user password with bcrypt

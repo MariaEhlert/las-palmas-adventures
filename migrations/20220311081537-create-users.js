@@ -24,14 +24,6 @@ module.exports = {
       photo: {
         type: Sequelize.STRING,
         defaultValue: "localhost:4000/images/Users/default.png"
-      },
-      created_at: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updated_at: {
-        allowNull: false,
-        type: Sequelize.DATE
       }
     });
   },

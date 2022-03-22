@@ -1,7 +1,7 @@
 const db = require("../models");
 const User = require("../models/users");
 const Place = require("../models/places");
-const Favourite = db.Favourites;
+const Favourite = db.favourites;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Favourite

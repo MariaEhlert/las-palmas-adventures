@@ -14,7 +14,7 @@ module.exports = app => {
     router.get("/:name", auth.isAuthenticated, users.findByName);
 
     // Update a User
-    router.put("/:id", upload.single('photo') ,auth.isAuthenticated, users.UpdateUser);
+    router.put("/:id", auth.isAuthenticated , upload.single('photo') , users.UpdateUser);
 
     // Delete a User
     router.delete("/:id", users.delete);
