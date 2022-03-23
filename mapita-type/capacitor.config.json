@@ -1,0 +1,8 @@
+{
+    "appId": "io.ionic.mapita-type",
+    "appName": "mapita-type",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "build",
+    "cordova": {}
+  }
