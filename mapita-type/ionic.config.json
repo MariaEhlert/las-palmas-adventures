@@ -1,0 +1,7 @@
+{
+    "name": "mapita-type",
+    "integrations": {
+      "capacitor": {}
+    },
+    "type": "react"
+  }
