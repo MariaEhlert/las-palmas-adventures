@@ -1,9 +1,8 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ReadMorePage from '../components/ReadMore';
 
-import './Page.scss';
 
-const PageFour: React.FC = () => {
+const ReadMore_Page: React.FC = () => {
   
   return (
     <IonPage>
@@ -25,4 +24,4 @@ const PageFour: React.FC = () => {
   );
 };
 
-export default PageFour;
+export default ReadMore_Page;

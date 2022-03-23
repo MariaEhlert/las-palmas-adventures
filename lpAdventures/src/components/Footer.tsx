@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
 
     };
     
-    // setting const items to Item [] and defining the src, alt-tag
+    // setting const items to Item [] and defining the src, alt-tag and label in the array
     const items: Item[] = [
         { src: require('../assets/images/erasmusplus.png'), alt: 'Erasmus+ Logo', label: 'Sponsored by' },
         { src: require('../assets/images/Global-Goals.png'), alt: '17 World Goals Logo', label: 'Inspired by' }

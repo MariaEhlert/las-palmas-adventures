@@ -1,8 +1,7 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import FrontPage from '../components/FrontPage';
-import './Page.scss';
 
-const Page: React.FC = () => {
+const Front_Page: React.FC = () => {
   
   
 
@@ -27,4 +26,4 @@ const Page: React.FC = () => {
   );
 };
 
-export default Page;
+export default Front_Page;

@@ -72,7 +72,7 @@ const Cards: React.FC = () => {
 
     useEffect(() => {
         const getData = async () => {
-            const url = `http://localhost:4000/api/Places`;
+            const url = `https://lp-adventures.herokuapp.com/api/Places`;
             const result = await axios.get(url);
             setApiData(result.data)
         }
@@ -111,7 +111,7 @@ const Cards: React.FC = () => {
                         </IonItem>
                         {/* <IonIcon icon='heart'></IonIcon> */}
                         <IonItem>
-                            <IonImg src={`http://${item.photo}`}/>
+                            <IonImg src={item.photo}/>
                         </IonItem>
                         <IonGrid>
                             <IonRow>

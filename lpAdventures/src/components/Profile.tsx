@@ -9,13 +9,14 @@ import { useAuth } from "./Login/AuthProvider"
 
 //creating the variable with an React Function Component
 const ProfilePage: React.FC = () => {
+
     const { loginData } = useAuth();
    
     return (
         <>
+        {/* using a conditional ternery operator to show login if !loginData else show profile */}
         {!loginData ? <LoginPage /> : <Profile />}
 
-        
         </>
     )
 } 

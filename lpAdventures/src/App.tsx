@@ -24,10 +24,10 @@ import './theme/variables.css';
 
 import './components/Main.scss'
 import Menu from './components/Menu';
-import Page from './pages/Page';
-import PageTwo from './pages/PageTwo';
-import PageTree from './pages/PageTree';
-import PageFour from './pages/PageFour';
+import Front_Page from './pages/Front_Page';
+import Profile_Page from './pages/Profile_Page';
+import Map_Page from './pages/Map_Page';
+import ReadMore_Page from './pages/ReadMore_Page';
 
 
 
@@ -48,19 +48,19 @@ const App: React.FC = () => {
             </Route>
 
             <Route path="/page/FrontPage" exact={true}>
-              <Page />
+              <Front_Page />
             </Route>
 
             <Route path="/page/Profile" exact={true}>
-              <PageTwo />
+              <Profile_Page />
             </Route>
 
             <Route path="/page/Map" exact={true}>
-              <PageTree />
+              <Map_Page />
             </Route>
 
             <Route path="/page/ReadMore/:slugName" exact={true}>
-              <PageFour />
+              <ReadMore_Page />
             </Route>
 
           </IonRouterOutlet>

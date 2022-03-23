@@ -1,12 +1,9 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ProfilePage from '../components/Profile';
-import './Page.scss';
+import MapPage from '../components/Map';
 
-const PageTwo: React.FC = () => {
+
+const Map_Page: React.FC = () => {
   
-  
-
-
   return (
     <IonPage>
       <IonHeader>
@@ -18,13 +15,13 @@ const PageTwo: React.FC = () => {
           <IonTitle>Las palmas Adventures</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen className='profileWrapper'>
+      <IonContent fullscreen>
         <IonHeader collapse="condense">
         </IonHeader>
-        <ProfilePage />
+        <MapPage />
       </IonContent>
     </IonPage>
   );
 };
 
-export default PageTwo;
+export default Map_Page;

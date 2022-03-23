@@ -23,7 +23,7 @@ const ReadMorePage: React.FC = () => {
 
     useEffect(() => {
         const getData = async () => {
-            const url = `http://localhost:4000/api/Places/${encodeURI(slugName)}`;
+            const url = `https://lp-adventures.herokuapp.com/api/Places/${encodeURI(slugName)}`;
             const result = await axios.get(url);
 
             setApiData(result.data)
@@ -36,7 +36,7 @@ const ReadMorePage: React.FC = () => {
                 <IonCard className="detailsCardsWrapper" key={apiData.id}>
                     <IonCardHeader>{apiData.name}</IonCardHeader>
                     <IonItem lines="none">
-                        <IonImg src={`http://${apiData.photo}`} />
+                        <IonImg src={apiData.photo} />
                     </IonItem>
                     <IonGrid>
                         <IonRow>
