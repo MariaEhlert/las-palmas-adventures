@@ -1,14 +1,18 @@
 import {
-  IonContent,
+
+  IonContent, IonImg,
   IonItem,
   IonLabel,
   IonList,
   IonMenu,
-  IonMenuToggle
+  IonMenuToggle,
+
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
 import './Menu.scss';
+import Page from "../pages/Page";
+
 
 interface AppPage {
   url: string;
@@ -32,25 +36,31 @@ const appPages: AppPage[] = [
 
 
 
-const Menu: React.FC = () => {
+const Menu: React.FC   = () => {
   const location = useLocation();
 
+
   return (
-    <IonMenu contentId="main" type="overlay">
-      <IonContent>
-        <IonList id="inbox-list">
+
+
+
+    <IonMenu contentId="main" type="overlay" swipeGesture={true}>
+        <IonList  >
           {appPages.map((appPage, index) => {
             return (
-              <IonMenuToggle key={index} autoHide={false}>
-                <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
-                  <IonLabel>{appPage.title}</IonLabel>
+              <IonMenuToggle key={index} autoHide={false}   >
+                <IonItem className={location.pathname === appPage.url ? 'selected' : ''}
+                         routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
+                  <IonLabel >{appPage.title}</IonLabel>
                 </IonItem>
+
               </IonMenuToggle>
-            );
+                 );
           })}
         </IonList>
-      </IonContent>
+
     </IonMenu>
+
   );
 };
 
