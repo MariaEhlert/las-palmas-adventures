@@ -1,10 +1,7 @@
 import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
-import Menu from './components/Menu';
-import Page from './pages/Page';
-import PageTree from './pages/PageTree';
-import Footer from './components/Footer';
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -26,7 +23,13 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 import './components/Main.scss'
+import Menu from './components/Menu';
+import Page from './pages/Page';
 import PageTwo from './pages/PageTwo';
+import PageTree from './pages/PageTree';
+import PageFour from './pages/PageFour';
+
+
 
 
 
@@ -54,6 +57,10 @@ const App: React.FC = () => {
 
             <Route path="/page/Map" exact={true}>
               <PageTree />
+            </Route>
+
+            <Route path="/page/ReadMore/:slugName" exact={true}>
+              <PageFour />
             </Route>
 
           </IonRouterOutlet>

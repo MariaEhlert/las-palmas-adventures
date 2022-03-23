@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
     <>
         <IonCard className="footerGridWrapper">
                 {items.map((image, i) => (
-                    <IonList key={i}>
+                    <IonList className="footerList" key={i}>
                         <IonGrid>
                             <IonRow>
                                 <IonCol className="footerCol">
