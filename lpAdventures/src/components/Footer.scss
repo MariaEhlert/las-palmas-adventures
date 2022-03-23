@@ -1,0 +1,21 @@
+.footerGridWrapper{
+    --background: none;
+    // background-color: #f2f2f0; //doesn't work
+    background-color: red !important;
+
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .footerCol{
+        .footerText{
+            font-size: 5vw;
+            display: flex;
+            justify-content: center;
+            padding-bottom: 4vw;
+        }
+        .footerImg{
+            width: 60%;
+            margin: auto;
+        }
+    }
+}
