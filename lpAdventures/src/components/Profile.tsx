@@ -4,8 +4,23 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
 import './Profile.scss';
+import LoginPage from "./Login/LoginForm";
+import { useAuth } from "./Login/AuthProvider"
 
-const ProfilePage = () => {
+//creating the variable with an React Function Component
+const ProfilePage: React.FC = () => {
+    const { loginData } = useAuth();
+   
+    return (
+        <>
+        {!loginData ? <LoginPage /> : <Profile />}
+
+        
+        </>
+    )
+} 
+
+const Profile = () => {
     const [showModal, setShowModal] = useState(false);
 
     interface favouritesList {
@@ -80,4 +95,6 @@ const ProfilePage = () => {
 }
 
 
-export default ProfilePage
+
+export default ProfilePage;
+
