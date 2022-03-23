@@ -21,6 +21,10 @@ const apiSettingsUser = {
       const endpoint = `${API_URL}/users/${UserId}`;
       return await (await axios.put(endpoint, body));
     },
+    sign: async  body => {
+      const endpoint = `${API_URL}/users/signin`;
+      return await (await axios.post(endpoint, body));
+    }
 }
 
 

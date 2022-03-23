@@ -22,6 +22,11 @@ const Page: React.FC = () => {
 
   // console.log(APIComment.fetchAllCommentsByPlace(1))
 
+  const formData = new URLSearchParams();
+        formData.append('name', "admin" );
+        formData.append('password',"admin" );
+
+console.log(APIUser.sign(formData));
 
   const { name } = useParams<{ name: string; }>();
 

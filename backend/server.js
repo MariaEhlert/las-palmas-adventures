@@ -19,8 +19,6 @@ app.use(bodyParser.json());
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
- 
 // database conection
 const db = require("./models");
 
@@ -80,4 +78,5 @@ app.use(express.static(__dirname + '/public'));
 app.listen(port, () => {
   console.log('Server started on: ' + port);
 });
+
 
