@@ -1,11 +1,14 @@
 import { IonHeader } from '@ionic/react'
 import Footer from './Footer'
 import './LogIn.scss'
+
+//the login variable with an react function component
 const LogIn: React.FC = () => {
     return (
         <>
-        <IonHeader>Login</IonHeader>
-        <Footer />
+            {/* making sure the header and footer are on the site */}
+            <IonHeader>Login</IonHeader>
+            <Footer />
         </>
     )
 }

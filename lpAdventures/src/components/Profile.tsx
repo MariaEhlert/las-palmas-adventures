@@ -1,6 +1,5 @@
-import { IonButton, IonCardHeader, IonCol, IonIcon, IonImg, IonModal, IonText, IonTitle } from '@ionic/react';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { IonButton, IonCol, IonIcon, IonImg, IonModal, IonText, IonTitle } from '@ionic/react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
 import './Profile.scss';
@@ -20,36 +19,22 @@ const ProfilePage: React.FC = () => {
         </>
     )
 } 
-
+//the modal for favorites
 const Profile = () => {
     const [showModal, setShowModal] = useState(false);
-
-    interface favouritesList {
-        idUser: number;
-        idPlace: string;
-        createdAt: null;
-        updatedAt: null;
-    }
-    const [apiData, setApiData] = useState<favouritesList[]>();
-    // useEffect(() => {
-    //     const getData = async () => {
-    //         const url = `localhost:4000/api/favourites`;
-    //         const result = await axios.get(url);
-    //         setApiData(result.data)
-    //     }
-    //     getData();
-    // }, [setApiData]);
-
 
     type Item = {
         src: string;
         text: string;
     };
+
+    //the array for profile img
     const items: Item[] = [{
-        src: require('../assets/images/MicrosoftTeams-image.png'), text: 'beach'
+        src: require('../assets/images/Profile-picture.png'), text: 'flower'
     }]
     return (
         <>
+        {/* the ionic setup of the profile */}
             <Link className='profileX' to={'/page/FrontPage'}>
                 <IonIcon icon='close-sharp'></IonIcon>
             </Link>
@@ -68,25 +53,21 @@ const Profile = () => {
                 <IonButton onClick={e => setShowModal(true)} className='likedPlaces'>Liked places
                     <IonIcon icon="heart"></IonIcon>
                 </IonButton>
-                <IonButton className='logOutBtn'>Log out</IonButton><br />
+                <IonButton className='logOutBtn'>Log out</IonButton><br /> 
+                
+                {/* Modal */}
                 <IonModal className='modalWrapper'
                     isOpen={showModal}
                     initialBreakpoint={0.5}
                     breakpoints={[0, 0.5, 1]}
                     onDidDismiss={() => setShowModal(false)}>
-                    {/* {apiData && apiData.map((item) => { */}
-                        {/* return ( */}
                             <>
-                                <IonText className='modalContent' > {/* key={item.idUser} */}
-                                    {/* <IonCardHeader>{item.idPlace}</IonCardHeader> */}
+                                <IonText className='modalContent' >
                                     <IonTitle>La Laja</IonTitle>
-                                    <IonTitle>Las Rias Bajas</IonTitle>
+                                    <IonTitle>A Raices</IonTitle>
                                     <IonTitle>Museo Canario</IonTitle>
                                 </IonText>
                             </>
-                        {/* ) */}
-                    {/* })} */}
-
                 </IonModal>
             </div>
 

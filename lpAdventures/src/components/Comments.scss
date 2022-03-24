@@ -1,0 +1,28 @@
+.commentsWrapper{
+    box-shadow: none;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 4%;
+    .commentsLabel{
+        font-weight: 600;
+    }
+    .comments{
+        padding-top: 10%;
+        border-bottom: 0.5px solid grey;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        .nameComments{
+            font-weight: 600;
+            padding-bottom: 2%;
+        }
+    }
+    Ion-Textarea{
+        border: 1px solid black;
+    }
+    Ion-Button{
+        --background:#589EA6;
+        display: grid;
+        justify-content: end;
+        
+    }
+}

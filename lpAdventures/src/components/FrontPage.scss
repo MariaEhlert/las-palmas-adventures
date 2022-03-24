@@ -1,17 +1,39 @@
+.heroImage{
+    box-shadow: unset;
+}
+
 .submenu{
-    Ion-Button{
+    .subBtn{
+        --color: #000000;
+        --background: none;
         font-size: 3vw;
+        --box-shadow: unset;
     }
 }
 .cardsWrapper{
-    Ion-Card-Header{
-        text-align: center;
-        font-size: 5vw;
-    }
-    .likePlace{
-        Ion-Icon{
-            color: red;
+    .frontPageHeader{
+        display: grid;
+        grid-template-columns: 80% 20%;
+        
+        Ion-Card-Header{
+            text-align: center;
+            margin-left: 32%;
+            font-size: 5vw;
         }
+        .likePlace{
+            display: grid;
+            justify-content: flex-end;
+            Ion-Icon{
+                color: red;
+                font-size: 5vw;
+            }
+        }
+    }
+    .placesImage{
+        Ion-Img {
+            border-radius: 15px !important;
+            overflow: hidden;
+          }
     }
     .distance{
         color: black;
