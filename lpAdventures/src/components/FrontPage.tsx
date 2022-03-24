@@ -1,6 +1,6 @@
 import { IonButton, IonCard, IonCardHeader, IonCardSubtitle, IonCol, IonContent, IonGrid, IonIcon, IonImg, IonItem, IonLabel, IonList, IonRow, IonText, IonThumbnail, IonTitle, IonToolbar } from "@ionic/react"
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 import './FrontPage.scss'

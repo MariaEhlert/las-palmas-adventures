@@ -16,7 +16,8 @@ const ReadMorePage: React.FC = () => {
         creation: number | null;
         photo: string;
         likes: number;
-
+        latitude: number;
+        longitude: number;
     }
     const [apiData, setApiData] = useState<iPlaceList>();
     const { slugName } = useParams<{ slugName: string }>();
@@ -47,7 +48,7 @@ const ReadMorePage: React.FC = () => {
                             </IonCol>
                             <IonCol>
                                 <IonCardSubtitle className="detailsStart">
-                                    <Link className="start" to={'/page/Map'}>Start adventure now!</Link>
+                                    <Link className="start"  to={`/page/Map/${apiData.latitude}/${apiData.longitude}`  }>Start adventure now!</Link>
                                 </IonCardSubtitle>
                             </IonCol>
                         </IonRow>

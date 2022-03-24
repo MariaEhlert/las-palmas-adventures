@@ -55,7 +55,7 @@ const App: React.FC = () => {
               <Profile_Page />
             </Route>
 
-            <Route path="/page/Map" exact={true}>
+            <Route path="/page/Map/:latitude/:longitude" exact={true} >
               <Map_Page />
             </Route>
 

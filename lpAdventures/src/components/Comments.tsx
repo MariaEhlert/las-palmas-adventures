@@ -15,37 +15,43 @@ const Comments: React.FC = () => {
     const [apiData, setApiData] = useState<commentsList>();
     const { slugName } = useParams<{ slugName: string }>();
 
-    
+
     useEffect(() => {
         const getComments = async () => {
-            const url = `http://localhost:4000/api/comments/${encodeURI(slugName)}`;
+            const url = `https://lp-adventures.herokuapp.com/api/Places/${encodeURI(slugName)}`;
             const result = await axios.get(url);
 
-            setApiData(result.data)
+            const urlComments = `https://lp-adventures.herokuapp.com/api/Comments/Place/${result.data.id}`;
+            const resultComments = await axios.get(urlComments);
+
+            setApiData(resultComments.data)
         }
         getComments();
+
     }, [setApiData]);
 
-    useEffect(() => {
-        const postComment = async () => {
-            const url = 'http://localhost:4000/api/comments';
-            const result = await axios.post(url);
-        }
-        postComment();
-    })
-    
+    console.log(apiData)
+
+    // useEffect(() => {
+    //     const postComment = async () => {
+    //         const url = 'http://localhost:4000/api/comments';
+    //         const result = await axios.post(url);
+    //     }
+    //     postComment();
+    // })
+
     return (
         <>
-            {/* {apiData && */}
+            {apiData &&
                 <IonCard>
                     <IonLabel position="stacked">___ comments</IonLabel>
                     <IonTextarea></IonTextarea>
                     <IonButton>Post comment</IonButton>
                     <IonText>
-                        {/* {apiData.text} */}
+                        {apiData.text}
                     </IonText>
                 </IonCard>
-            {/* } */}
+            }
         </>
 
     )
