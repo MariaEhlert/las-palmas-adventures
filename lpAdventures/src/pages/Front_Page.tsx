@@ -1,6 +1,5 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { useParams } from 'react-router';
-import './Page.scss';
 //Import the service to use
 import APIUser from "../services/user.service"
 import APIPlace from "../services/place.service"
