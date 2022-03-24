@@ -140,6 +140,7 @@ export function LeafletMap(cords: any) {
             }, 5000);
         }else{
             if(old != latitude ){
+                console.log("distinto")
                 window.location.reload()
             }
         }
