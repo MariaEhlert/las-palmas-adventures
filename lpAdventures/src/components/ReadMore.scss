@@ -1,0 +1,27 @@
+.detailsCardsWrapper{
+    box-shadow: none;
+    .detailsDistance{
+        display: grid;
+        justify-content: center;
+        .walk{
+        color: black;
+        }
+    }
+    .detailsStart{
+        display: grid;
+        justify-content: center;
+        .start{
+            color: black;
+        }
+    }
+    .backToFront{
+        color: black;
+        text-decoration: none;
+    }
+    .seeLikes{
+            Ion-Icon{
+                fill: red;
+            }
+
+    }
+}
