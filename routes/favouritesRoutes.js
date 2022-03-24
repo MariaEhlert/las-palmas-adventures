@@ -9,7 +9,7 @@ module.exports = app => {
     router.get("/:id_user", favourites.findAllByUser);
 
     // Update a Favourites
-    router.put("/:id_place/:id_user", favourites.updateFavourite);
+    // router.put("/:id_place/:id_user", favourites.updateFavourite);
 
     // Delete a Favourites
     router.delete("/:id_place/:id_user", favourites.delete);

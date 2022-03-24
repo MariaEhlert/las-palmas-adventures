@@ -21,7 +21,7 @@ exports.create = (req, res) => {
     };
 
     // Save new Favourite in the database
-    Favourite.create(favourite, { fields: ['id_user', "id_place"] })
+    Favourite.create(favourite, { fields: ['id_user', "id_place"],  returning: false })
         .then(data => {
             return res.send(data);
         })
@@ -51,28 +51,28 @@ exports.findAllByUser = (req, res) => {
 };
 
 // Update Favourites using their ids
-exports.updateFavourite = (req, res) => {
-    const idUser = req.params.id_user;
-    const idPlace = req.params.id_place;
-    // If there is no parameters -> num == 0 & cannot update place
-    // If theres a req.body parameter then num==1 & place is updated
-    Favourite.update(req.body, { where: { id_user: idUser, id_place: idPlace } }, { fields: ['id_user', "id_place"] }).then(num => {
-        if (num == 1) {
-            res.send({
-                message: "Favourite was updated successfully."
-            });
-        } else {
-            res.send({
-                message: `Cannot update Favourite with id_user =${idUser} & id_place =${idPlace} Maybe Place was not found or req.body is empty!`
-            });
-        }
-    })
-        .catch(err => {
-            res.status(500).send({
-                message: "Error updating Favourite with id_user =" + idUser + " id_place =" + idPlace
-            });
-        });
-};
+// exports.updateFavourite = (req, res) => {
+//     const idUser = req.params.id_user;
+//     const idPlace = req.params.id_place;
+//     // If there is no parameters -> num == 0 & cannot update place
+//     // If theres a req.body parameter then num==1 & place is updated
+//     Favourite.update(req.body, { where: { id_user: idUser, id_place: idPlace } }, { fields: ['id_user', "id_place"] }).then(num => {
+//         if (num == 1) {
+//             res.send({
+//                 message: "Favourite was updated successfully."
+//             });
+//         } else {
+//             res.send({
+//                 message: `Cannot update Favourite with id_user =${idUser} & id_place =${idPlace} Maybe Place was not found or req.body is empty!`
+//             });
+//         }
+//     })
+//         .catch(err => {
+//             res.status(500).send({
+//                 message: "Error updating Favourite with id_user =" + idUser + " id_place =" + idPlace
+//             });
+//         });
+// };
 
 // delete Favourites using their ids
 exports.delete = (req, res) => {

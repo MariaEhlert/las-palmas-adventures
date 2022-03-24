@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "sequelize db:migrate && nodemon server.js",
+    "start": "node server.js",
+    "build": "sequelize db:migrate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

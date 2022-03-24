@@ -23,7 +23,7 @@ exports.create = (req, res) => {
     };
 
     // Save new Comment in the database
-    Comment.create(comment, { fields: ['id_user', "id_place", "text", "date"] })
+    Comment.create(comment, { fields: ['id_user', "id_place", "text", "date"], returning: false})
         .then(data => {
             return res.send(data);
         })
