@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import { AuthProvider } from './components/Login/AuthProvider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* VERY important to have AuthProvider around the app otherwise you get an error in the login */}
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,14 +1,9 @@
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { useParams } from 'react-router';
-import Footer from '../components/Footer';
-import FrontPage from '../components/FrontPage';
-import './Page.scss';
+import MapPage from '../components/Map';
 
-const Page: React.FC = () => {
+
+const Map_Page: React.FC = () => {
   
-  
-
-
   return (
     <IonPage>
       <IonHeader>
@@ -23,11 +18,10 @@ const Page: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
         </IonHeader>
-        <FrontPage />
+        <MapPage />
       </IonContent>
-      {/* <Footer /> */}
     </IonPage>
   );
 };
 
-export default Page;
+export default Map_Page;

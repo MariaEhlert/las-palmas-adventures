@@ -6,6 +6,12 @@
 .cardsWrapper{
     Ion-Card-Header{
         text-align: center;
+        font-size: 5vw;
+    }
+    .likePlace{
+        Ion-Icon{
+            color: red;
+        }
     }
     .distance{
         color: black;
@@ -20,11 +26,15 @@
 .blackToTop{
     background-color: #BF8C6F;
     text-align: center;
+    padding-bottom: 5%;
+    padding-top: 4%;
+    font-size: 6vw;
     Ion-Card-Header{
         color: white;
     }
     .blackBtn{
         color: white;
         text-decoration: none;
+        font-size: 6vw;
     }
 }

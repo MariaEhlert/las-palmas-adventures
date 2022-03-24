@@ -1,8 +1,72 @@
-// // --background none to get background image to work 
 .profileWrapper{
-        --background: none;
-    background: url("../assets/images/beach.jpg");
+    --background: none;
+    background: url("../assets/images/Hero-view-of-beach.jpg");
     background-position: center; 
     background-repeat: no-repeat;
     background-size: cover; 
+}
+.profileX{
+    display: grid;
+    justify-content: end;
+    padding-top: 10%;
+    padding-right: 10%;
+    color: black;
+}
+.profileTitle{
+    text-align: center;
+    padding-bottom: 3%;
+}
+.profileImgWrapper{
+    --background: none;
+    display: grid;
+    justify-content: center;
+    .profileImg{
+        border-radius: 50%;
+        overflow: hidden; 
+    }
+}
+.profileBtnWrapper{
+    display: grid;
+    justify-content: center;
+    padding-bottom: 4.4%;
+    .uploadIcon{
+        --background: none;
+        // --box-shadow: unset remove box around button
+        --box-shadow: unset;
+    }
+    .username{
+        --background: #BAD9D9;
+        Ion-Text{
+            text-shadow: 0 0 2px #589EA6;
+        }
+    }
+    .changePassword{
+        --background: #589EA6;
+    }
+    .likedPlaces{
+        --background: #589EA6;
+        Ion-Icon{
+            fill: red;
+        }
+    }
+    .logOutBtn{
+        margin-top: 25.4%;
+        --background: #589EA6;
+    }
+}
+.modalContent{
+    padding-top: 10%;
+    margin-left: 10% ;
+    margin-right: 10%;
+    Ion-Title{
+        text-align: center;
+        padding-top: 5%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.274); 
+    }
+    
+}
+#ion-react-wrapper{
+    // --background: none;
+    // opacity: 20%;
+    background-color: #bf8c6f;
 }

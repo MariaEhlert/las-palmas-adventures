@@ -13,20 +13,32 @@ import './Menu.scss';
 interface AppPage {
   url: string;
   title: string;
+  display: any;
 }
 
 const appPages: AppPage[] = [
   {
     title: 'Adventures',
-    url: '/page/FrontPage'
+    url: '/page/FrontPage',
+    display: true
   },
   {
     title: 'Profile',
-    url: '/page/Profile'
+    url: '/page/Profile',
+    display: true
+
   },
   {
     title: 'Map',
-    url: '/page/Map'
+    url: '/page/Map',
+    display: true
+
+  },
+  {
+    title: 'ReadMore',
+    url: '/page/ReadMore',
+    display: false
+
   }
 ];
 
@@ -40,13 +52,13 @@ const Menu: React.FC = () => {
       <IonContent>
         <IonList id="inbox-list">
           {appPages.map((appPage, index) => {
-            return (
+            return appPage.display ?(
               <IonMenuToggle key={index} autoHide={false}>
                 <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
                   <IonLabel>{appPage.title}</IonLabel>
                 </IonItem>
               </IonMenuToggle>
-            );
+            ): null;
           })}
         </IonList>
       </IonContent>
