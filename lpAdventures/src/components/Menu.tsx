@@ -1,10 +1,11 @@
 import {
+  IonButtons, IonCard,
   IonContent,
   IonItem,
   IonLabel,
   IonList,
-  IonMenu,
-  IonMenuToggle
+  IonMenu, IonMenuButton,
+  IonMenuToggle, IonTitle, IonToolbar
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
@@ -52,23 +53,34 @@ const Menu: React.FC = () => {
 
   //The menu returned 
   return (
-    <IonMenu contentId="main" type="overlay">
-      <IonContent>
-        <IonList id="inbox-list">
-          {appPages.map((appPage, index) => {
-            return appPage.display ?(
-              
-              //here the menu toggles between visable to hidden
-              <IonMenuToggle key={index} autoHide={false}>
-                <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
-                  <IonLabel>{appPage.title}</IonLabel>
-                </IonItem>
-              </IonMenuToggle>
-            ): null;
-          })}
-        </IonList>
-      </IonContent>
-    </IonMenu>
+      <IonMenu contentId="main" type="push" >
+
+        <IonContent fullscreen class="profileWrapper">
+          <IonCard  class="menu-card">
+          <IonList id="inbox-list">
+            <IonToolbar class="menu-toolbar">
+              <IonButtons slot="end">
+                <IonMenuButton />
+              </IonButtons>
+              {/* name for app  */}
+              <IonTitle>Las palmas Adventures</IonTitle>
+            </IonToolbar>
+
+            {appPages.map((appPage, index) => {
+              return appPage.display ?(
+                  <IonMenuToggle key={index} autoHide={false}>
+                    <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
+                      <IonLabel>{appPage.title}</IonLabel>
+                    </IonItem>
+                  </IonMenuToggle>
+              ): null;
+            })}
+          </IonList>
+
+
+          </IonCard>
+        </IonContent>
+      </IonMenu>
   );
 };
 
