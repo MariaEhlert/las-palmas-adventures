@@ -7,7 +7,11 @@ import Comments from "./Comments";
 import Footer from "./Footer";
 import './ReadMore.scss'
 
+
+//the login variable with an react function component
 const ReadMorePage: React.FC = () => {
+
+    //interface with key and value
     interface iPlaceList {
         id: number;
         name: string;
@@ -18,9 +22,14 @@ const ReadMorePage: React.FC = () => {
         likes: number;
 
     }
+    
+    //variable that uses the interface iPlaceList
     const [apiData, setApiData] = useState<iPlaceList>();
+    //variable slugName that uses the params where slugName is a string
     const { slugName } = useParams<{ slugName: string }>();
 
+
+    //getting the places for read more
     useEffect(() => {
         const getData = async () => {
             const url = `https://lp-adventures.herokuapp.com/api/Places/${encodeURI(slugName)}`;
@@ -29,7 +38,10 @@ const ReadMorePage: React.FC = () => {
             setApiData(result.data)
         }
         getData();
+
+    //Dependency array with children - this renders if any changes
     }, [setApiData]);
+
     return (
         <>
             {apiData &&
