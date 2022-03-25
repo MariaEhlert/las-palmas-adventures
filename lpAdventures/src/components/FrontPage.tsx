@@ -1,15 +1,16 @@
-import { IonButton, IonCard, IonCardHeader, IonCardSubtitle, IonCol, IonContent, IonGrid, IonIcon, IonImg, IonItem, IonLabel, IonList, IonRow, IonText, IonThumbnail, IonTitle, IonToolbar } from "@ionic/react"
+import { IonCard, IonCardHeader, IonCardSubtitle, IonCol, IonGrid, IonIcon, IonImg, IonItem, IonLabel, IonList, IonRow, IonSegment, IonSegmentButton } from "@ionic/react"
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 import './FrontPage.scss'
 import Footer from "./Footer";
-import ReadMorePage from "./ReadMore";
 
+//variable with react function component
 const FrontPage: React.FC = () => {
     return (
         <>
+        {/* here we define the content of the frontpage */}
             <HeroImage />
             <Cards />
             <Footer />
@@ -17,33 +18,31 @@ const FrontPage: React.FC = () => {
     )
 }
 
-
+//the hero img are defined inside of this
+//if slideshow all would be needed
 const HeroImage = () => {
     type Item = {
         src: string;
     };
     const items: Item[] = [{
+        //img needs require to work
         src: require('../assets/images/Hero-beach-boys-text.png')
     }
-    // ,
-    // {
-    //     src: require('../assets/images/Hero-feet-in-sand-text.png')
-    // },
-    // {
-    //     src: require('../assets/images/Hero-view-of-beach-text.png')
-    // }
-]
-
+        // ,
+        // {
+        //     src: require('../assets/images/Hero-feet-in-sand-text.png')
+        // },
+        // {
+        //     src: require('../assets/images/Hero-view-of-beach-text.png')
+        // }
+    ]
     return (
         <>
-            <IonCard>
+            <IonCard className="heroImage">
                 <IonList>
                     {items.map((image, i) => (
-                        <IonItem key={i}>
-                            {/* <IonThumbnail slot="start"> */}
-                                <IonImg src={image.src} />
-                            {/* </IonThumbnail> */}
-                            {/* <IonLabel>{image.text}</IonLabel> */}
+                        <IonItem lines="none" key={i}>
+                            <IonImg src={image.src} />
                         </IonItem>
                     ))}
                 </IonList>
@@ -52,7 +51,9 @@ const HeroImage = () => {
     )
 }
 
+//variable with react function component
 const Cards: React.FC = () => {
+    //interface for the placelist key and value type defined
     interface iPlaceList {
         id: number;
         name: string;
@@ -65,11 +66,14 @@ const Cards: React.FC = () => {
         locationTypeApi: string;
         createdAt: null;
         updatedAt: null;
-
     }
+
+    //variable that uses the interface iPlaceList
     const [apiData, setApiData] = useState<iPlaceList[]>();
+    //this is created to make sure the content starts on beach but can change
     const [typeValue, setTypeValue] = useState("beach")
 
+    //get the places
     useEffect(() => {
         const getData = async () => {
             const url = `https://lp-adventures.herokuapp.com/api/Places`;
@@ -77,74 +81,70 @@ const Cards: React.FC = () => {
             setApiData(result.data)
         }
         getData();
+
+    //Dependency array with children - this renders if any changes
     }, [setApiData]);
 
-    
     return (
         <>
-        <IonToolbar className="submenu">
-            <IonGrid>
-                <IonRow>
-                    <IonCol size="2" offset="0">
-                        <IonButton onClick={() => {setTypeValue('beach')}}>Beach</IonButton>
-                    </IonCol>
-                    <IonCol size="2" offset="0.5">
-                        <IonButton onClick={() => {setTypeValue('restaurant')}}>Restaurant</IonButton>
-                    </IonCol>
-                    <IonCol size="2" offset="2">
-                        <IonButton onClick={() => {setTypeValue('place of interest')}}>Place of interest</IonButton>
-                    </IonCol>
-                </IonRow>
-            </IonGrid>
-        </IonToolbar>
-        {            
-        <>
-            {apiData && apiData.map((item) => {
-                
-                if(item.type === typeValue){
+        {/* ionSegment is to make a submenu */}
+            <IonSegment>
+                <IonSegmentButton value="beach" onClick={() => { setTypeValue('beach') }}>
+                    <IonLabel>Beach</IonLabel>
+                </IonSegmentButton>
+                <IonSegmentButton value="restaurant" onClick={() => { setTypeValue('restaurant') }}>
+                    <IonLabel>Restaurant</IonLabel>
+                </IonSegmentButton>
+                <IonSegmentButton value="place of interest" onClick={() => { setTypeValue('place of interest') }}>
+                    <IonLabel>Place of interest</IonLabel>
+                </IonSegmentButton>
+            </IonSegment>
+            {
+                <>
+                {/* map to get all the places */}
+                    {apiData && apiData.map((item) => {
 
-                return (
-                    <IonCard className="cardsWrapper" key={item.id}>
-                        <IonCardHeader>{item.name}</IonCardHeader>
-                        <IonItem className="likePlace">
-                            <IonIcon icon="heart-outline"></IonIcon>
-                        </IonItem>
-                        {/* <IonIcon icon='heart'></IonIcon> */}
-                        <IonItem>
-                            <IonImg src={item.photo}/>
-                        </IonItem>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol>
-                                    <IonCardSubtitle>
-                                        <Link className="distance" to={'/page/Map'}><IonIcon icon="walk"></IonIcon>10 min.</Link>
-                                    </IonCardSubtitle>
-                                </IonCol>
-                                <IonCol>
-                                    <IonCardSubtitle>
-                                        <Link className="readMore" to={`/page/ReadMore/${item.name}`}>Read more</Link>
-                                    </IonCardSubtitle>
-                                </IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCard>
-                )
+                        if (item.type === typeValue) {
+
+                            return (
+                                <IonCard className="cardsWrapper" key={item.id}>
+                                    <div className="frontPageHeader">
+                                        <IonCardHeader>{item.name}</IonCardHeader>
+                                        <IonItem lines="none" className="likePlace">
+                                            <IonIcon icon="heart-outline"></IonIcon>
+                                        </IonItem>
+                                    </div>
+                                    <IonItem lines="none" className="placesImage">
+                                        <IonImg src={item.photo} />
+                                    </IonItem>
+                                    <IonGrid>
+                                        <IonRow>
+                                            <IonCol>
+                                                <IonCardSubtitle>
+                                                    <Link className="distance" to={'/page/Map'}><IonIcon icon="walk"></IonIcon>___</Link>
+                                                </IonCardSubtitle>
+                                            </IonCol>
+                                            <IonCol>
+                                                <IonCardSubtitle>
+                                                    <Link className="readMore" to={`/page/ReadMore/${item.name}`}>Read more</Link>
+                                                </IonCardSubtitle>
+                                            </IonCol>
+                                        </IonRow>
+                                    </IonGrid>
+                                </IonCard>
+                            )
+                        }
+                    })}
+                </>
             }
-            })}
-        </>
-            
-        }
             <IonCard className="blackToTop">
                 <IonCardHeader>You're at the end of our Adventures!</IonCardHeader>
                 <IonCardSubtitle>
                     <Link className="blackBtn" to={''}>Back to top!</Link>
                 </IonCardSubtitle>
-
             </IonCard>
         </>
     )
-
 }
-
 
 export default FrontPage

@@ -17,6 +17,8 @@ const Profile_Page: React.FC = () => {
       <IonContent fullscreen className='profileWrapper'>
         <IonHeader collapse="condense">
         </IonHeader>
+        {/* calls ProfilePage */}
+        {/* can only call one component */}
         <ProfilePage />
       </IonContent>
     </IonPage>

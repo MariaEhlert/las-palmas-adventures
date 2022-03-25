@@ -5,6 +5,7 @@ import { IonHeader } from "@ionic/react"
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 
+
 const MapPage: React.FC = () => {
     interface iPlaceCoords {
         latitude: number;

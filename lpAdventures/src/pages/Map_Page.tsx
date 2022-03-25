@@ -18,6 +18,8 @@ const Map_Page: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
         </IonHeader>
+        {/* calls MapPage */}
+        {/* can only call one component */}
         <MapPage />
       </IonContent>
     </IonPage>
