@@ -117,7 +117,7 @@ const Cards: React.FC = () => {
                             <IonRow>
                                 <IonCol>
                                     <IonCardSubtitle>
-                                        <Link className="distance" to={'/page/Map'}><IonIcon icon="walk"></IonIcon>___</Link>
+                                        <Link className="distance" to={'/page/Map'}><IonIcon icon="walk"></IonIcon>10 min.</Link>
                                     </IonCardSubtitle>
                                 </IonCol>
                                 <IonCol>
