@@ -14,16 +14,6 @@ import FrontPage from '../components/FrontPage';
 
 const Front_Page: React.FC = () => {
   
-  
-
-  // Define de hook (is like useState)
-  // const { state, loading, error } = useUserFetch();
-  // const { state, loading, error } = useCommentFetch();
-  // const { state, loading, error } = usePlaceFetch();
-  // console.log(state.results)
-
-  // console.log(APIComment.fetchAllCommentsByPlace(1))
-
   const formData = new URLSearchParams();
         formData.append('name', "admin" );
         formData.append('password',"admin" );
@@ -46,6 +36,8 @@ console.log(APIUser.sign(formData));
       <IonContent fullscreen>
         <IonHeader collapse="condense">
         </IonHeader>
+        {/* calls FrontPage */}
+        {/* can only call one component */}
         <FrontPage />
       </IonContent>
     </IonPage>

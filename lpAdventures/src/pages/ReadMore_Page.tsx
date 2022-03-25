@@ -18,6 +18,8 @@ const ReadMore_Page: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
         </IonHeader>
+        {/* calls ReadMorePage */}
+        {/* can only call one component */}
         <ReadMorePage />
       </IonContent>
     </IonPage>

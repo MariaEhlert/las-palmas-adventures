@@ -4,17 +4,25 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import './Comments.scss'
 
+
+//variable with react function component
 const Comments: React.FC = () => {
-    interface commentsList {
+    
+    //interface for the comment list key and value
+    interface iCommentsList {
         idUser: number;
         idPlaces: number;
         text: string;
         date: any;
     }
 
-    const [apiData, setApiData] = useState<commentsList[]>();
+    //variable that uses the interface iCommentsList
+    const [apiData, setApiData] = useState<iCommentsList[]>();
+    //variable slugName that uses the params where slugName is a string
     const { slugName } = useParams<{ slugName: string }>();
 
+
+    //getting the comments
     useEffect(() => {
         const getComments = async () => {
             const url = `https://lp-adventures.herokuapp.com/api/Places/${encodeURI(slugName)}`;
@@ -26,7 +34,7 @@ const Comments: React.FC = () => {
             setApiData(resultComments.data)
         }
         getComments();
-
+    //Dependency array with children - this renders if any changes
     }, [setApiData]);
 
     return (

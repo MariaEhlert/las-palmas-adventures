@@ -6,9 +6,11 @@ import { useEffect, useState } from "react";
 import './FrontPage.scss'
 import Footer from "./Footer";
 
+//variable with react function component
 const FrontPage: React.FC = () => {
     return (
         <>
+        {/* here we define the content of the frontpage */}
             <HeroImage />
             <Cards />
             <Footer />
@@ -16,11 +18,14 @@ const FrontPage: React.FC = () => {
     )
 }
 
+//the hero img are defined inside of this
+//if slideshow all would be needed
 const HeroImage = () => {
     type Item = {
         src: string;
     };
     const items: Item[] = [{
+        //img needs require to work
         src: require('../assets/images/Hero-beach-boys-text.png')
     }
         // ,
@@ -46,7 +51,9 @@ const HeroImage = () => {
     )
 }
 
+//variable with react function component
 const Cards: React.FC = () => {
+    //interface for the placelist key and value type defined
     interface iPlaceList {
         id: number;
         name: string;
@@ -60,9 +67,13 @@ const Cards: React.FC = () => {
         createdAt: null;
         updatedAt: null;
     }
+
+    //variable that uses the interface iPlaceList
     const [apiData, setApiData] = useState<iPlaceList[]>();
+    //this is created to make sure the content starts on beach but can change
     const [typeValue, setTypeValue] = useState("beach")
 
+    //get the places
     useEffect(() => {
         const getData = async () => {
             const url = `https://lp-adventures.herokuapp.com/api/Places`;
@@ -70,10 +81,13 @@ const Cards: React.FC = () => {
             setApiData(result.data)
         }
         getData();
+
+    //Dependency array with children - this renders if any changes
     }, [setApiData]);
 
     return (
         <>
+        {/* ionSegment is to make a submenu */}
             <IonSegment>
                 <IonSegmentButton value="beach" onClick={() => { setTypeValue('beach') }}>
                     <IonLabel>Beach</IonLabel>
@@ -87,6 +101,7 @@ const Cards: React.FC = () => {
             </IonSegment>
             {
                 <>
+                {/* map to get all the places */}
                     {apiData && apiData.map((item) => {
 
                         if (item.type === typeValue) {
