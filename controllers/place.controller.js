@@ -18,7 +18,7 @@ exports.create = (req, res) => {
         type: req.body.type,
         description: req.body.description,
         creation: req.body.creation,
-        photo: 'localhost:4000/images/Places/image-' + Date.now() + '.' + req.file.filename,
+        photo: 'https://lp-adventures.herokuapp.com/images/Places/' + req.file.filename,
         latitude: req.body.latitude,
         longitude: req.body.longitude
     };

@@ -53,10 +53,11 @@ exports.findAll = (req, res) => {
 
 // Find a many Comment with it idPlace
 exports.findByIdPlace = (req, res) => {
-    const idPlace = req.params.idPlace;
+    const idPlace = req.params.id_place;
     Comment.findAll({
-        attributes: ['id_user', 'id_place', 'text', 'date']
-    }, { where: { idPlace: idPlace } })
+        attributes: ['id_user', 'id_place', 'text', 'date'],
+        where: { id_place: idPlace }
+    })
         .then(data => {
             res.send(data);
         })
@@ -67,12 +68,13 @@ exports.findByIdPlace = (req, res) => {
         });
 };
 
-// Find a many Comment with it idUser
+// Find a many Comment with it id
 exports.findByIdUser = (req, res) => {
-    const idUser = req.params.idUser;
+    const idUser = req.params.idser;
     Comment.findAll({
-        attributes: ['id_user', 'id_place', 'text', 'date']
-    }, { where: { idUser: idUser } })
+        attributes: ['id_user', 'id_place', 'text', 'date'],
+        where: { id_user: idUser }
+    })
         .then(data => {
             res.send(data);
         })

@@ -19,7 +19,7 @@ exports.create = (req, res) => {
         name: req.body.name,
         password: req.body.password,
         email: req.body.email,
-        photo: 'localhost:4000/images/User/image-' + Date.now() + '.' + req.file.filename
+        photo: 'https://lp-adventures.herokuapp.com/images/Users/'+req.file.filename
     };
 
     // Encrypts user password with bcrypt
