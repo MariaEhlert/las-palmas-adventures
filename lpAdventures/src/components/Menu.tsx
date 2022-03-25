@@ -34,7 +34,7 @@ const appPages: AppPage[] = [
   {
     title: 'Map',
     url: '/page/Map',
-    display: true
+    display: false
 
   },
   {
